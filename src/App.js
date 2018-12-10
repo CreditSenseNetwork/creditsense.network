@@ -1,26 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  Provider,
+  Heading,
+  NavLink,
+  Subhead,
+  Absolute,
+  Relative,
+  Flex
+} from 'rebass';
+import { Hero, CallToAction, ScrollDownIndicator } from 'react-landing-page';
+import whitepaper from './files/whitepaper.pdf';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider>
+        <Relative pb={5}>
+          <Absolute zIndex={1} left={0} right={0} top={0}>
+            <Flex is="header" p={3}>
+              <NavLink href="/" fontSize={3}>
+                Credit Sense
+              </NavLink>
+              <NavLink href="https://github.com/piy0999/CreditSense" ml="auto">
+                GitHub
+              </NavLink>
+            </Flex>
+          </Absolute>
+        </Relative>
+
+        <Hero>
+          <Heading>Credit Sense</Heading>
+          <Subhead>
+            Inter-bank Credit Scoring platform powered by Blockchain and Machine
+            Learning
+          </Subhead>
+          <CallToAction href={whitepaper} mt={3}>
+            White Paper
+          </CallToAction>
+          <ScrollDownIndicator />
+        </Hero>
+      </Provider>
     );
   }
 }
